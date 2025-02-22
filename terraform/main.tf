@@ -6,13 +6,13 @@ terraform {
     }
   }
 
-  backend "s3" {
-    bucket         = "aws-test-tf-bucket"
-    key            = "terraform.tfstate"
-    region         = "us-west-2"
-    # dynamodb_table = "tfstate-lock"
-    encrypt        = true
-  }
+  # backend "s3" {
+  #   bucket         = "aws-test-tf-bucket"
+  #   key            = "terraform.tfstate"
+  #   region         = "us-west-2"
+  #   # dynamodb_table = "tfstate-lock"
+  #   encrypt        = true
+  # }
 }
 
 provider "aws" {
@@ -70,14 +70,14 @@ provider "aws" {
 #   }
 # }
 
-# resource "aws_s3_bucket" "s3_bucket_backend" {
-#     bucket = "aws-test-tf-bucket"
+resource "aws_s3_bucket" "s3_bucket_backend" {
+    bucket = "aws-test-tf-bucket"
 
-#     tags = {
-#         Name        = "s3_state_bucket"
-#         Environment = "Dev"
-#     }
-# }
+    tags = {
+        Name        = "s3_state_bucket"
+        Environment = "Dev"
+    }
+}
 
 resource "aws_s3_bucket_acl" "s3_bucket_backend_acl" {
   depends_on = [aws_s3_bucket_ownership_controls.s3_bucket_acl_ownership]
