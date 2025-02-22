@@ -26,7 +26,7 @@ provider "aws" {
 //}
 
 resource "aws_instance" "windows_dc_tf" {
-  ami           = "ami-0d5856887e273397a"
+  ami           = "ami-0893df1bd754c3189"
   instance_type = "t3.medium"
   subnet_id = "subnet-0ba9c51620f74885a"
   vpc_security_group_ids = ["sg-01e39217c7176e5a1"]
@@ -41,7 +41,7 @@ resource "aws_instance" "windows_dc_tf" {
 }
 
 resource "aws_instance" "windows_comp01_tf" {
-  ami           = "ami-0ab43de3ccc993f6c"
+  ami           = "ami-07523300cd39ea85c"
   instance_type = "t3.medium"
   subnet_id = "subnet-0ba9c51620f74885a"
   vpc_security_group_ids = ["sg-01e39217c7176e5a1"]
@@ -56,7 +56,7 @@ resource "aws_instance" "windows_comp01_tf" {
 }
 
 resource "aws_instance" "windows_comp02_tf" {
-  ami           = "ami-0ab43de3ccc993f6c"
+  ami           = "ami-07523300cd39ea85c"
   instance_type = "t3.medium"
   subnet_id = "subnet-0ba9c51620f74885a"
   vpc_security_group_ids = ["sg-01e39217c7176e5a1"]
