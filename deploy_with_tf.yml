@@ -16,17 +16,20 @@
        repo: https://github.com/sonstar2/ansible-terraform.git
        dest: '{{ project_dir }}'
 
-    - name: debug
-      debug: var=ansible_user
-      
-    - name: debug
+    - name: Set Password Variable
       set_fact:
         ansible_admin_pass: "{{ ansible_password }}"
+      no_log: true
 
-    - name: Deploy terraform configuration file
+    - name: Deploy terraform userdata file
       ansible.builtin.template:
         src: templates/windows_userdata.ps1.j2
         dest: '{{ project_dir }}/terraform/windows_userdata.ps1'
+  
+    - name: Deploy terraform variable file
+      ansible.builtin.template:
+        src: templates/variables.tf.j2
+        dest: '{{ project_dir }}/terraform/variables.tf'
 
     - name: Deploy with force init
       cloud.terraform.terraform:

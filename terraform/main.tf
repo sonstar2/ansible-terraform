@@ -9,14 +9,14 @@ terraform {
   backend "s3" {
     bucket         = "aws-test-tf-bucket"
     key            = "terraform.tfstate"
-    region         = "us-east-1"
+    region         = var.aws_region
 //    dynamodb_table = "tfstate-lock"
     encrypt        = true
   }
 }
 
 provider "aws" {
-  region = "us-east-1"
+  region = var.aws_region
 }
 
 //module "vpc" {
@@ -30,7 +30,7 @@ resource "aws_instance" "windows_dc_tf" {
   instance_type = "t3.medium"
   subnet_id = "subnet-0ba9c51620f74885a"
   vpc_security_group_ids = ["sg-01e39217c7176e5a1"]
-  availability_zone = "us-east-1a"
+  availability_zone = var.availability_zone
   associate_public_ip_address = true
   key_name = "aws-test-key"
   user_data = file("windows_userdata.ps1")
@@ -45,7 +45,7 @@ resource "aws_instance" "windows_comp01_tf" {
   instance_type = "t3.medium"
   subnet_id = "subnet-0ba9c51620f74885a"
   vpc_security_group_ids = ["sg-01e39217c7176e5a1"]
-  availability_zone = "us-east-1a"
+  availability_zone = var.availability_zone
   associate_public_ip_address = true
   key_name = "aws-test-key"
   user_data = file("windows_userdata.ps1")
@@ -60,7 +60,7 @@ resource "aws_instance" "windows_comp02_tf" {
   instance_type = "t3.medium"
   subnet_id = "subnet-0ba9c51620f74885a"
   vpc_security_group_ids = ["sg-01e39217c7176e5a1"]
-  availability_zone = "us-east-1a"
+  availability_zone = var.availability_zone
   associate_public_ip_address = true
   key_name = "aws-test-key"
   user_data = file("windows_userdata.ps1")
