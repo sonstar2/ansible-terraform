@@ -11,10 +11,10 @@
     project_dir: '/tmp/deployment'
 
   tasks:
-    # - name: Grab instance info
-    #   ansible.builtin.git:
-    #    repo: https://github.com/sonstar2/ansible-terraform.git
-    #    dest: '{{ project_dir }}'
+    - name: Grab instance info
+      ansible.builtin.git:
+       repo: https://github.com/sonstar2/ansible-terraform.git
+       dest: '{{ project_dir }}'
 
     - name: debug
       debug: var=ansible_user
@@ -23,13 +23,13 @@
       debug:
         msg: "{{ ansible_password }}"
 
-    # - name: Deploy terraform configuration file
-    #   ansible.builtin.template:
-    #     src: windows_userdata.ps1.j2
-    #     dest: '{{ project_dir }}/terraform/windows_userdata.ps1'
+    - name: Deploy terraform configuration file
+      ansible.builtin.template:
+        src: windows_userdata.ps1.j2
+        dest: '{{ project_dir }}/terraform/windows_userdata.ps1'
 
-    # - name: Deploy with force init
-    #   cloud.terraform.terraform:
-    #     project_path: '{{ project_dir }}/terraform'
-    #     state: present
-    #     force_init: true
+    - name: Deploy with force init
+      cloud.terraform.terraform:
+        project_path: '{{ project_dir }}/terraform'
+        state: present
+        force_init: true
