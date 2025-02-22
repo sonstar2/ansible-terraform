@@ -29,7 +29,7 @@ resource "aws_instance" "windows_dc_tf" {
   ami           = "ami-0893df1bd754c3189"
   instance_type = "t3.medium"
   subnet_id = "subnet-061da113bd22590b3"
-  vpc_security_group_ids = ["sg-01e39217c7176e5a1"]
+  vpc_security_group_ids = ["sg-0001b79e8e4ce11af"]
   availability_zone = var.availability_zone
   associate_public_ip_address = true
   key_name = "aws-test-key"
@@ -44,7 +44,7 @@ resource "aws_instance" "windows_comp01_tf" {
   ami           = "ami-07523300cd39ea85c"
   instance_type = "t3.medium"
   subnet_id = "subnet-061da113bd22590b3"
-  vpc_security_group_ids = ["sg-01e39217c7176e5a1"]
+  vpc_security_group_ids = ["sg-0001b79e8e4ce11af"]
   availability_zone = var.availability_zone
   associate_public_ip_address = true
   key_name = "aws-test-key"
@@ -59,7 +59,7 @@ resource "aws_instance" "windows_comp02_tf" {
   ami           = "ami-07523300cd39ea85c"
   instance_type = "t3.medium"
   subnet_id = "subnet-061da113bd22590b3"
-  vpc_security_group_ids = ["sg-01e39217c7176e5a1"]
+  vpc_security_group_ids = ["sg-0001b79e8e4ce11af"]
   availability_zone = var.availability_zone
   associate_public_ip_address = true
   key_name = "aws-test-key"
