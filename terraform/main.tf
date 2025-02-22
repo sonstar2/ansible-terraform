@@ -9,14 +9,14 @@ terraform {
   backend "s3" {
     bucket         = "aws-test-tf-bucket"
     key            = "terraform.tfstate"
-    region         = "us-east-2"
+    region         = "us-east-1"
 //    dynamodb_table = "tfstate-lock"
     encrypt        = true
   }
 }
 
 provider "aws" {
-  region = "us-east-2"
+  region = "us-east-1"
 }
 
 //module "vpc" {
@@ -30,12 +30,42 @@ resource "aws_instance" "windows_dc_tf" {
   instance_type = "t3.medium"
   subnet_id = "subnet-0ba9c51620f74885a"
   vpc_security_group_ids = ["sg-01e39217c7176e5a1"]
-  availability_zone = "us-east-2a"
+  availability_zone = "us-east-1a"
   associate_public_ip_address = true
   key_name = "aws-test-key"
   user_data = file("windows_userdata.ps1")
   tags = {
-    Name :  "dc02tf"
+    Name :  "dc01tf"
+    os: "windows"
+  }
+}
+
+resource "aws_instance" "windows_comp01_tf" {
+  ami           = "ami-0ab43de3ccc993f6c"
+  instance_type = "t3.medium"
+  subnet_id = "subnet-0ba9c51620f74885a"
+  vpc_security_group_ids = ["sg-01e39217c7176e5a1"]
+  availability_zone = "us-east-1a"
+  associate_public_ip_address = true
+  key_name = "aws-test-key"
+  user_data = file("windows_userdata.ps1")
+  tags = {
+    Name :  "winston-tf"
+    os: "windows"
+  }
+}
+
+resource "aws_instance" "windows_comp02_tf" {
+  ami           = "ami-0ab43de3ccc993f6c"
+  instance_type = "t3.medium"
+  subnet_id = "subnet-0ba9c51620f74885a"
+  vpc_security_group_ids = ["sg-01e39217c7176e5a1"]
+  availability_zone = "us-east-1a"
+  associate_public_ip_address = true
+  key_name = "aws-test-key"
+  user_data = file("windows_userdata.ps1")
+  tags = {
+    Name :  "winthrop-tf"
     os: "windows"
   }
 }
