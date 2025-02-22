@@ -25,50 +25,50 @@ provider "aws" {
   //availability_zones = var.availability_zones  
 //}
 
-resource "aws_instance" "windows_dc_tf" {
-  ami           = var.win_2019_full_ami_id
-  instance_type = "t3.medium"
-  subnet_id = var.subnet_id
-  vpc_security_group_ids = var.security_group_ids
- // availability_zone = var.availability_zone
-  associate_public_ip_address = true
-  key_name = "aws-test-key"
-  user_data = file("windows_userdata.ps1")
-  tags = {
-    Name :  "dc01tf"
-    os: "windows"
-  }
-}
+# resource "aws_instance" "windows_dc_tf" {
+#   ami           = var.win_2019_full_ami_id
+#   instance_type = "t3.medium"
+#   subnet_id = var.subnet_id
+#   vpc_security_group_ids = var.security_group_ids
+#  // availability_zone = var.availability_zone
+#   associate_public_ip_address = true
+#   key_name = "aws-test-key"
+#   user_data = file("windows_userdata.ps1")
+#   tags = {
+#     Name :  "dc01tf"
+#     os: "windows"
+#   }
+# }
 
-resource "aws_instance" "windows_comp01_tf" {
-  ami           = var.win_2019_core_ami_id
-  instance_type = "t3.medium"
-  subnet_id = var.subnet_id
-  vpc_security_group_ids = var.security_group_ids
-  //availability_zone = var.availability_zone
-  associate_public_ip_address = true
-  key_name = "aws-test-key"
-  user_data = file("windows_userdata.ps1")
-  tags = {
-    Name :  "winston-tf"
-    os: "windows"
-  }
-}
+# resource "aws_instance" "windows_comp01_tf" {
+#   ami           = var.win_2019_core_ami_id
+#   instance_type = "t3.medium"
+#   subnet_id = var.subnet_id
+#   vpc_security_group_ids = var.security_group_ids
+#   //availability_zone = var.availability_zone
+#   associate_public_ip_address = true
+#   key_name = "aws-test-key"
+#   user_data = file("windows_userdata.ps1")
+#   tags = {
+#     Name :  "winston-tf"
+#     os: "windows"
+#   }
+# }
 
-resource "aws_instance" "windows_comp02_tf" {
-  ami           = var.win_2019_core_ami_id
-  instance_type = "t3.medium"
-  subnet_id = var.subnet_id
-  vpc_security_group_ids = var.security_group_ids
- // availability_zone = var.availability_zone
-  associate_public_ip_address = true
-  key_name = "aws-test-key"
-  user_data = file("windows_userdata.ps1")
-  tags = {
-    Name :  "winthrop-tf"
-    os: "windows"
-  }
-}
+# resource "aws_instance" "windows_comp02_tf" {
+#   ami           = var.win_2019_core_ami_id
+#   instance_type = "t3.medium"
+#   subnet_id = var.subnet_id
+#   vpc_security_group_ids = var.security_group_ids
+#  // availability_zone = var.availability_zone
+#   associate_public_ip_address = true
+#   key_name = "aws-test-key"
+#   user_data = file("windows_userdata.ps1")
+#   tags = {
+#     Name :  "winthrop-tf"
+#     os: "windows"
+#   }
+# }
 
 resource "aws_s3_bucket" "s3_bucket_backend" {
     bucket = "aws-test-tf-bucket"
