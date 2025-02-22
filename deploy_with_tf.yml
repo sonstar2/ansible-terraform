@@ -1,6 +1,8 @@
 ---
 - name: Deploy EC2 instance using terraform
   hosts: localhost
+  connection: local
+  gather_facts: false
   collections:
     - cloud.terraform
 
