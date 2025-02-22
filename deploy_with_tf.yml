@@ -20,8 +20,8 @@
       debug: var=ansible_user
       
     - name: debug
-      debug:
-        msg: "{{ ansible_password }}"
+      set_fact:
+        ansible_admin_pass: "{{ ansible_password }}"
 
     - name: Deploy terraform configuration file
       ansible.builtin.template:
