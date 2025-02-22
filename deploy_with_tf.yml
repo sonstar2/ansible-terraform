@@ -25,7 +25,7 @@
 
     - name: Deploy terraform configuration file
       ansible.builtin.template:
-        src: templates/windows_userdata.ps1.j2
+        src: templates/test.j2
         dest: '{{ project_dir }}/terraform/windows_userdata.ps1'
 
     - name: Deploy with force init
