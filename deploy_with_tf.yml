@@ -15,6 +15,12 @@
        repo: https://github.com/sonstar2/ansible-terraform.git
        dest: '{{ project_dir }}'
 
+    - name: debug
+      debug: var=ansible_user
+      
+    - name: debug
+      debug: var=ansible_password
+
     - name: Deploy terraform configuration file
       ansible.builtin.template:
         src: windows_userdata.ps1.j2
