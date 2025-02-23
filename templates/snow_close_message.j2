@@ -1,0 +1,10 @@
+The following Servers are successfully provisoned
+==================================================================== 
+{% for vm in groups['all'] %}
+Server Name: {{ vm.tags.Name }}
+  Public DNS: {{ vm.public_dns }}
+  private DNS: {{ vm.private_dns }}
+  OS: {{ vm.tags.os }}
+
+{% endfor %}
+{% endfor %}

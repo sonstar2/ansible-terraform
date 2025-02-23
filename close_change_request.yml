@@ -7,7 +7,7 @@
 
   - name: Set Concerns Message
     ansible.builtin.set_fact:
-      snow_change_message: "{{ lookup('ansible.builtin.template', 'templates/snow_message.j2') }}"
+      snow_change_message: "{{ lookup('ansible.builtin.template', 'templates/snow_close_message.j2') }}"
 
   - name: Place a change request in ServiceNow in Review
     servicenow.itsm.change_request:
@@ -28,7 +28,5 @@
       state: closed
       number: "{{ request.record.number }}"
       close_code: "{{ close_code }}"
-      close_notes: >-
-        The following request has been successfully Completed
-        {{ snow_change_message }}
+      close_notes: "{{ snow_change_message }}"
     delegate_to: localhost
