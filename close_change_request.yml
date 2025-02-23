@@ -6,7 +6,7 @@
   tasks:
 
   - name: debug
-    debug: var=groups[0]
+    debug: var=groups['all'][0]
 
   - name: Run Once block
     block:
