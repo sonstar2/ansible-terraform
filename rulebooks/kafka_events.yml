@@ -4,7 +4,7 @@
   sources:
     - ansible.eda.kafka:
         topic: windows_events_from_dc01
-        host: ec2-3-26-42-192.ap-southeast-2.compute.amazonaws.com
+        host: 3.26.42.192
         port: 9092
         verify_mode: "CERT_NONE"
         group_id: eda
@@ -14,7 +14,3 @@
       condition: event.body.i is defined
       action:
         debug:
-    - name: Stop
-      condition: event.body == stop
-      action:
-        shutdown:
