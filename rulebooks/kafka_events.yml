@@ -1,16 +1,17 @@
 ---
-- name: Demo rules with kafka as source
+- name: Events from Windows Logs
   hosts: all
   sources:
-    - ansible.eda.kafka:
-        topic: windows_events_from_dc01
+    - name: Kafka listener for Windows logs topic
+      ansible.eda.kafka:
         host: 3.26.42.192
+        topic: windows_events_from_dc01
         port: 9092
-        verify_mode: "CERT_NONE"
-        group_id: eda
-        check_hostname: false
+        # verify_mode: "CERT_NONE"
+        group_id: ansible-eda-winlogbeat
+        # check_hostname: false
   rules:
     - name: Check defined
-      condition: event.body.i is defined
+      condition: event.body is defined
       action:
         debug:
