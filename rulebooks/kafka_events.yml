@@ -1,0 +1,19 @@
+---
+- name: Demo rules with kafka as source
+  hosts: localhost
+  sources:
+    - name: kafka
+      kafka:
+        topic: windows_events_from_dc01
+        host: ec2-3-26-42-192.ap-southeast-2.compute.amazonaws.com
+        port: 9092
+        group_id: testing
+  rules:
+    - name: Check defined
+      condition: event.body.i is defined
+      action:
+        debug:
+    - name: Stop
+      condition: event.body == stop
+      action:
+        shutdown:
