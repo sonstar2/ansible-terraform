@@ -2,8 +2,8 @@ The following Servers are successfully provisoned
 ==================================================================== 
 {% for vm in groups['all'] %}
 Server Name: {{ hostvars[vm].tags.Name }}
-  Public DNS: {{ hostvars[vm].public_dns }}
-  private DNS: {{ hostvars[vm].private_dns }}
-  OS: {{ hostvars[vm].tags.os }}
+  Public DNS: {{ hostvars[vm].public_dns | default(hostvars[vm].public_dns_name) }}
+  private DNS: {{ hostvars[vm].private_dns | default(hostvars[vm].private_dns_name }}
+  OS: {{ hostvars[vm].tags.os | default(hostvars[vm].platform }}
 
 {% endfor %}
