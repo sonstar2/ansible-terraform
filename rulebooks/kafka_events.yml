@@ -11,7 +11,12 @@
         group_id: eda
         check_hostname: false
   rules:
+    - name: AD Account Change
+      condition: event.body.winlog.event_id == "4722"
+      action:
+        debug:
+
     - name: Check defined
-      condition: event.meta is defined
+      condition: event.body.winlog is defined
       action:
         debug:
