@@ -5,7 +5,7 @@
     - name: Kafka listener for Windows logs topic
       ansible.eda.kafka:
         host: 52.64.198.227
-        topic: windows_events_from_dc01
+        topic: wintopic
         port: 9092
         # verify_mode: "CERT_NONE"
         group_id: ansible-eda-winlogbeat
