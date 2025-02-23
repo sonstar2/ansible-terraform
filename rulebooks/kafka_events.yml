@@ -3,7 +3,7 @@
   hosts: localhost
   sources:
     - name: kafka
-      kafka:
+      ansible.eda.kafka:
         topic: windows_events_from_dc01
         host: ec2-3-26-42-192.ap-southeast-2.compute.amazonaws.com
         port: 9092
