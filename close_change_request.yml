@@ -5,9 +5,6 @@
   gather_facts: false
   tasks:
 
-  - name: debug
-    debug: var=groups['all']['dc01tf']
-
   - name: Run Once block
     block:
     - name: Set Concerns Message
