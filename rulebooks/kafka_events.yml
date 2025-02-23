@@ -1,9 +1,8 @@
 ---
 - name: Demo rules with kafka as source
-  hosts: localhost
+  hosts: all
   sources:
-    - name: kafka
-      ansible.eda.kafka:
+    - ansible.eda.kafka:
         topic: windows_events_from_dc01
         host: ec2-3-26-42-192.ap-southeast-2.compute.amazonaws.com
         port: 9092
