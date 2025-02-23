@@ -20,11 +20,12 @@ dependencies:
     collections:
       - name: cloud.terraform
       - name: amazon.aws
+      - name: servicenow.itsm
 options:
   package_manager_path: /usr/bin/microdnf
 
 additional_build_steps:
   append_base: |
-    RUN yum install -y git
+    RUN microdnf install -y git
     RUN curl https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo | tee /etc/yum.repos.d/terraform.repo
-    RUN yum install -y terraform
+    RUN microdnf install -y terraform
