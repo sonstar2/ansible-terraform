@@ -11,7 +11,7 @@
       instance:
         host: "{{ servicenow_hostname }}"
         username: "{{ servicenow_username }}"
-        password: "{{ servicenow_password }}
+        password: "{{ servicenow_password }}"
       state: new
       short_description: "{{ ansible_eda.event.body.event.action }}"
       description: |-
