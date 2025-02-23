@@ -16,7 +16,7 @@
       action:
         debug:
 
-    - name: Check defined
-      condition: event.body.winlog is defined
-      action:
-        debug:
+    # - name: Check defined
+    #   condition: event.body.winlog is defined
+    #   action:
+    #     debug:
