@@ -6,8 +6,8 @@
   tasks:
 
   - name: debug
-    debug: var=groups
-    
+    debug: var=groups[0]
+
   - name: Run Once block
     block:
     - name: Set Concerns Message
