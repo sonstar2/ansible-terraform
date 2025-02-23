@@ -13,7 +13,7 @@
       method: POST
       headers: 
         Content-Type: application/json
-        Authorization: Bearer {{ gpt_api_key }}
+        Authorization: Bearer {{ openai_api_key }}
       body_format: json
       body:
         model: "{{ gpt_model }}"
