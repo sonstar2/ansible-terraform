@@ -37,7 +37,7 @@
       msg: >- 
         A change request has been raised. 
         Please click on this URL to review: <{{ servicenow_hostname }}/nav_to.do?uri=change_request.do?sysparm_query=number={{request.record.number }}
-        
+
   - name: Pass along request information
     ansible.builtin.set_stats:
       data:
@@ -57,9 +57,9 @@
     delay: 10
     register: change_request_status
     delegate_to: localhost
-    # when: 
-    #   - change_type is defined
-    #   - change_type == 'normal'
+    when: 
+      - change_type is defined
+      - change_type == 'normal'
 
   - name: Update to implement the change request in ServiceNow
     servicenow.itsm.change_request:
