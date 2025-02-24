@@ -5,7 +5,7 @@
   vars:
     # gpt_prompt: "Please explain this Windows Event: {{ ansible_eda.event.body.winlog.event_id }} in the form of a Sci-fi Novel "
     gpt_prompt: >- 
-      We have the following Windows event created. Please explain what it is about in the form of a easy language
+      We have the following Windows event created. Please explain what it is and any security consequence. Provide any recommanded actions to follow as a system administrator and security architect point of view.
       Event ID: {{ ansible_eda.event.body.event.code }}
       Event Source: {{ ansible_eda.event.body.event.provider }}
       Event Message: {{ ansible_eda.event.body.message }}
