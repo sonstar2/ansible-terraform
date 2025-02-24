@@ -3,8 +3,9 @@
   hosts: localhost
   gather_facts: false
   vars:
-    gpt_prompt: "Please explain this Windows Event: {{ ansible_eda.event.body.winlog.event_id }} in the form of a Sci-fi Novel "
-
+    # gpt_prompt: "Please explain this Windows Event: {{ ansible_eda.event.body.winlog.event_id }} in the form of a Sci-fi Novel "
+    gpt_prompt: "Please explain this Windows Event: {{ ansible_eda.event.body }} "
+  
   tasks:
     - name: Send POST request using uri module
       ansible.builtin.uri:
