@@ -35,7 +35,7 @@ resource "aws_instance" "windows_dc_tf" {
   key_name = "aws-test-key"
   user_data = file("windows_userdata.ps1")
   tags = {
-    Name :  "dc01tf"
+    Name :  "dc01-tf"
     os: "windows"
   }
 }
