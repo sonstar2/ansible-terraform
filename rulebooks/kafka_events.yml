@@ -24,7 +24,8 @@
       action:
         run_job_template:
           organization: "Default"
-          name: "Windows Enhanced Ticket"
+          # name: "Windows Enhanced Ticket"
+          name: "Windows Enhanced Ticket Granite"
 
     # - name: Check defined
     #   condition: event.body.winlog is defined
