@@ -19,7 +19,7 @@
           name: "Windows AD Events"
 
     - name: Security Event
-      condition: event.body.winlog.event_id == "2003" and vent.body.message is search("Public profile")
+      condition: event.body.winlog.event_id == "2003" and event.body.message is search("Public profile")
       # condition: event.body.message is search("Windows Defender Firewall")
       action:
         run_job_template:
