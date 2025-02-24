@@ -13,7 +13,7 @@
         headers:
           accept: "application/json"
           Content-Type: "application/json"
-          Authorization: "Bearer {{ api_token | default('ansible123!') }}"
+          Authorization: "Bearer {{ granite_api_token | default('ansible123!') }}"
         body:
           prompt: "{{ gpt_prompt | default('What is the capital of the USA?') }}"
           max_tokens: "{{ max_tokens | default('500') }}"
