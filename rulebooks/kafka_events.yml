@@ -11,12 +11,12 @@
         group_id: eda
         check_hostname: false
   rules:
-    # - name: AD Account Change
-    #   condition: event.body.winlog.event_id == "4722"
-    #   action:
-    #     run_job_template:
-    #       organization: "Default"
-    #       name: "Windows AD Events"
+    - name: AD Account Change
+      condition: event.body.winlog.event_id == "4722"
+      action:
+        run_job_template:
+          organization: "Default"
+          name: "Windows AD Events"
 
     - name: Security Event
       condition: event.body.winlog.event_id == "2003" and event.body.message is search("Public profile")
