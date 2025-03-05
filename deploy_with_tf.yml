@@ -2,10 +2,9 @@
 - name: Deploy EC2 instance using terraform
   hosts: localhost
   connection: local
-  # hosts: "{{ _hosts | default('os_windows') }}"
   gather_facts: false
-  # collections:
-  #   - cloud.terraform
+  collections:
+    - cloud.terraform
 
   vars:
     project_dir: '/tmp/deployment'

@@ -1,5 +1,5 @@
 ---
-- name: Make API Call to ChatGPT
+- name: Make API Call to RHEL AI
   hosts: localhost
   vars:
     _url_: https://api.openai.com/v1/completions
@@ -7,7 +7,7 @@
     gpt_prompt: "Please explain this Windows Event: {{ ansible_eda.event.body.winlog.event_id }} in the form of a Sci-fi Novel "
 
   tasks:
-  - name: Send API request to ChatGPT
+  - name: Send API request to RHEL AI
     uri:
       url: "{{ _url_ }}"
       method: POST
